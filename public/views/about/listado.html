@@ -1,0 +1,68 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header"></div>
+            <button class="btn btn-outline-success" type="button" ng-click="esnuevo()">Nuevo</button>
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>#id</th>
+                            <th>Nombre de vehiculo</th>
+                            <th>Placas</th>
+                            <th>Tipo de vehiculo</th>
+                            <th>Tiempo estacionado</th>
+                            <th>Acciones</th>
+                            <th>Importe</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="cliente in clientes | filter:{esta_estacionado: 1}">
+                            <td>{{cliente.id}}</td>
+                            <td>{{cliente.nombre}}</td>
+                            <td>{{cliente.placas_id}}</td>
+                            <td>{{cliente.tipo == 1 ? 'Oficial' : (cliente.tipo == 2 ? 'Internos' : cliente.tipo)}}</td>
+                            <td>
+                                <h1>{{timers[$index].hours}}:{{timers[$index].minutes}}:{{timers[$index].seconds}}</h1>
+                                <button ng-click="stopTimer(cliente.id, $index)">Parar</button>
+                                <button ng-click="resetTimer(cliente.id, $index)">Reset</button>
+                            </td>
+                            <td>
+                                <button class="btn btn-outline-danger" type="button" ng-click="borrarCliente(cliente.id)">Borrar</button>
+                                <button class="btn btn-outline-success" type="button" ng-click="sendCliente(cliente)">Actualizar</button>
+                                <button class="btn btn-warning" type="button" ng-click="startTimer(cliente.id)">Entrada</button>
+                                <button class="btn btn-primary" type="button" ng-show="tiempo == true" ng-click="salidaCliente(cliente.id, $index)">Salida</button>
+                            </td>
+                            <td>{{cliente.tipo == 1 ? 'No paga' : tiempos.importe}}</td>
+                        </tr>
+6
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6" ng-show="es_nuevo == true">
+        <div class="form-group">
+            <div class="col-md-6" ng-show="es_nuevo == true">
+                <div class="form-group">
+                    <label for="">Nombre:</label>
+                    <input type="text" class="form-control" ng-model="nvoCliente.nombre">
+                    <label for="">Placas:</label>
+                    <input type="text" class="form-control" ng-model="nvoCliente.puntos">
+                    <label for="">Tipo de Vehiculo:</label>
+                    <input type="text" class="form-control" ng-model="nvoCliente.activo">
+                </div>
+        </div>
+
+        <div>
+            <button class="btn btn-outline-success" type="button" ng-click="actualiCliente()" ng-show="es_actualizar == true">Actualizar</button>
+            <button class="btn btn-outline-success" type="button" ng-click="guardarCliente($event)" ng-show="es_actualizar == false">Guardar</button>
+            <button class="btn btn-outline-success" type="button" ng-click="cancelarCliente()">Cancelar</button>
+        </div>
+
+
+        
+    </div>
+</div>

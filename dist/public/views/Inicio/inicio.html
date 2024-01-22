@@ -1,0 +1,62 @@
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">{{message}}</div>
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>#id</th>
+                            <th>Nombre de vehiculo</th>
+                            <th>Tipo de vehiculo</th>
+                            <th>Es Activo</th>
+                            <th></th>
+                            <th>
+                            <button class="btn btn-outline-success" type="button" ng-click="esnuevo()">Nuevo</button>
+                        </th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr ng-repeat="cliente in clientes">
+                            <td>{{cliente.id}}</td>
+                            <td>{{cliente.nombre}}</td>
+                            <td>{{cliente.email}}</td>
+                            <td>{{cliente.estado}}</td>
+                            <td>
+                                <button class="btn btn-outline-danger" type="button" ng-click="borrarCliente(cliente.id)">Borrar</button>
+                            </td>
+                            <td>
+                                <button class="btn btn-outline-success" type="button" ng-click="sendCliente(cliente)">Actualizar</button>
+                            </td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- <pre>{{clientes}}</pre> -->
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-md-6" ng-show="es_nuevo == true">
+        <div class="form-group">
+            <label for="">Nombre:</label>
+            <input type="text" class="form-control" ng-model="nvoCliente.nombre">
+            <label for="">Email:</label>
+            <input type="text" class="form-control" ng-model="nvoCliente.puntos">
+            <label for="">Estado:</label>
+            <input type="text" class="form-control" ng-model="nvoCliente.activo">
+        </div>
+
+        <td>
+            <button class="btn btn-outline-success" type="button" ng-click="actualiCliente(cliente.id)" ng-show="es_actualizar == true">Actualizar</button>
+            <button class="btn btn-outline-success" type="button" ng-click="guardarCliente(cliente.id, $event)" ng-show="es_actualizar == false">Guardar</button>
+            <div>
+                <button class="btn btn-outline-success" type="button"ng-click="cancelarCliente()">Cancelar</button>
+            </div>
+        </td>
+        </div>
+
+    </div>
+</div>

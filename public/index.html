@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+  <title>AngularJS Routing Example</title>
+  <link rel="icon" href="./images/icon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="./images/icon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="./css/bootstrap.min.css">  
+  <link rel="stylesheet" href="./css/animate.min.css">
+  <link rel="stylesheet" href="./css/bootstrap-4.min.css">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body ng-controller="MainController">
+    
+    <base href="/">
+
+    <navbar-component></navbar-component>
+
+    <div class="app-init shadow">
+        <div ng-view></div>
+    </div>
+
+  <script src="./js/jquery-3.7.1.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+  <script src="./js/sweetalert2.min.js"></script>
+  <script src="./js/angular.min.js"></script>
+  <script src="./js/angular-route.min.js"></script>
+  <script src="app.js"></script>
+  <script src="./views/Inicio/inicio.js"></script>
+  <script src="./views/about/about.js"></script>
+  <script src="./views/crud/crud.js"></script>
+</body>
+</html>

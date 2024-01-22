@@ -1,0 +1,28 @@
+{
+  "clientes": [
+    {
+      "id": "3a70",
+      "nombre": "Holaaa",
+      "puntos": "56",
+      "activo": 1
+    },
+    {
+      "id": "1858",
+      "nombre": "Harry",
+      "puntos": 0,
+      "activo": 1
+    },
+    {
+      "id": "2890",
+      "nombre": "adxaw",
+      "puntos": "23",
+      "activo": 1
+    },
+    {
+      "id": "7cab",
+      "nombre": "awddw",
+      "puntos": 0,
+      "activo": 1
+    }
+  ]
+}
